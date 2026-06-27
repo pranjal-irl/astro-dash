@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bf8pg5771ted1"]
+
+[ext_resource type="Script" uid="uid://dwcwlwntva0e" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://daw5pctpwhv35" path="res://assets/playerShip3_red.png" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=429491177]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1770176580]
+script = ExtResource("1_0xm2m")
+speed = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1244242837]
+position = Vector2(-2, -3)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1066230005]
+position = Vector2(-0.774353, 3.8146973e-06)
+scale = Vector2(1.0128205, 1)
+polygon = PackedVector2Array(-41, 23, 37, 23, -2, -33)
