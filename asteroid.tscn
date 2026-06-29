@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dhjmfrnlbpsnq"]
+
+[ext_resource type="Texture2D" uid="uid://dcqqijmnxfvkj" path="res://assets/meteorGrey_big1.png" id="1_n51xl"]
+[ext_resource type="Script" uid="uid://oukju7u2euux" path="res://asteroid.gd" id="1_p0ukn"]
+
+[node name="Asteroid" type="Area2D" unique_id=268421814]
+script = ExtResource("1_p0ukn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1317683333]
+texture = ExtResource("1_n51xl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1354875329]
+position = Vector2(-1.5579225, 2.15909)
+scale = Vector2(1.0289634, 1.0795456)
+polygon = PackedVector2Array(29, 25, 5, 19, -19, 31, -39, 9, -27, -35, 21, -35, 43, 0)
