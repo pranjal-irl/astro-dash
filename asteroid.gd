@@ -4,3 +4,9 @@ extends Area2D
 
 func _physics_process(delta):
 	position.y += speed * delta
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("GAME OVER")
+		

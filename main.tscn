@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://bf8pg5771ted1"]
 
 [ext_resource type="PackedScene" uid="uid://bqr5udpqhkapr" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c5837eq0vf0x0" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dhjmfrnlbpsnq" path="res://asteroid.tscn" id="2_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=429491177]
+script = ExtResource("1_h2yge")
+asteroid_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." unique_id=657594041 instance=ExtResource("1_0xm2m")]
-
-[node name="Asteroid" parent="." unique_id=268421814 instance=ExtResource("2_h2yge")]
-
-[node name="Asteroid2" parent="." unique_id=174565086 instance=ExtResource("2_h2yge")]
