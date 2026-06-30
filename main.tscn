@@ -3,10 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://bqr5udpqhkapr" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c5837eq0vf0x0" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dhjmfrnlbpsnq" path="res://asteroid.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://coaiu6nq8jn0f" path="res://assets/spacebg4.jpg" id="3_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=429491177]
 script = ExtResource("1_h2yge")
 asteroid_scene = ExtResource("2_h2yge")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2027362063]
+position = Vector2(580.49994, 318.12503)
+scale = Vector2(1.0424999, 1.0781481)
+texture = ExtResource("3_1bvp3")
 
 [node name="Player" parent="." unique_id=657594041 instance=ExtResource("1_0xm2m")]
 position = Vector2(544, 410)
