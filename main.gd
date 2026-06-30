@@ -3,7 +3,6 @@ extends Node2D
 @onready var game_over_screen = $"CanvasLayer/GameOverScreen"
 
 var score = 0
-var high_score = 0
 
 var lanes = [
 	Vector2(0, 230),
@@ -20,16 +19,23 @@ func _process(delta):
 	
 	$CanvasLayer/Score.text = "Score: " + str(score)
 	
-	if score>high_score :
-		high_score = score
+	if score>Global.high_score :
+		Global.high_score = score
 		
-	$CanvasLayer/HighScore.text = "High Score: " + str(high_score)
+	$CanvasLayer/HighScore.text = "High Score: " + str(Global.high_score)
 
 @export var asteroid_scene : PackedScene
 
 func _ready():
 	$Timer.stop()
 	game_over_screen.visible = false
+
+	if Global.restarting:
+		Global.restarting = false
+		$CanvasLayer/StartScreen.visible = false
+		$Timer.start()
+	else:
+		$CanvasLayer/StartScreen.visible = true
 
 func _on_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
@@ -52,7 +58,8 @@ func _on_start_pressed() -> void:
 	$Timer.start()
 
 
-func _on_button_pressed() -> void:
+func _on_restart_pressed() -> void:
+	Global.restarting = true
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
@@ -61,4 +68,5 @@ func game_over():
 	$CanvasLayer/GameOverScreen.visible = true
 	
 	$CanvasLayer/GameOverScreen/ScoreLabel.text = "Score: " + str(score)
-	$CanvasLayer/GameOverScreen/HighScoreLabel.text = "High Score: " + str(high_score)
+	$CanvasLayer/GameOverScreen/HighScoreLabel.text = "High Score: " + str(Global.high_score)
+	
