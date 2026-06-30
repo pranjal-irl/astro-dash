@@ -1,5 +1,8 @@
 extends Node2D
 
+var score = 0
+var high_score = 0
+
 var lanes = [
 	Vector2(0, 230),
 	Vector2(230, 460),
@@ -12,6 +15,13 @@ var time_alive = 0.0
 
 func _process(delta):
 	time_alive += delta
+	
+	$CanvasLayer/Score.text = "Score: " + str(score)
+	
+	if score>high_score :
+		high_score = score
+		
+	$CanvasLayer/HighScore.text = "High Score: " + str(high_score)
 
 @export var asteroid_scene : PackedScene
 
