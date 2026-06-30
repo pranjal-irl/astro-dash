@@ -9,6 +9,7 @@ script = ExtResource("1_h2yge")
 asteroid_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." unique_id=657594041 instance=ExtResource("1_0xm2m")]
+speed = 700
 
 [node name="Timer" type="Timer" parent="." unique_id=145768894]
 wait_time = 0.5
