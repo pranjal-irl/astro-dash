@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var game_over_screen = $"CanvasLayer/GameOverScreen"
+
 var score = 0
 var high_score = 0
 
@@ -26,14 +28,13 @@ func _process(delta):
 @export var asteroid_scene : PackedScene
 
 func _ready():
-	var asteroid = asteroid_scene.instantiate()
-	add_child(asteroid)
-
+	$Timer.stop()
+	game_over_screen.visible = false
 
 func _on_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
 	
-	asteroid.position.y = -50
+	asteroid.position.y = -20
 	
 	var lane_index = randi_range(0, lanes.size() - 1)
 	var lane = lanes[lane_index]
@@ -44,3 +45,20 @@ func _on_timer_timeout() -> void:
 	add_child(asteroid)
 	
 	
+
+
+func _on_start_pressed() -> void:
+	get_node("CanvasLayer/StartScreen").visible = false
+	$Timer.start()
+
+
+func _on_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+func game_over():
+	get_tree().paused = true
+	$CanvasLayer/GameOverScreen.visible = true
+	
+	$CanvasLayer/GameOverScreen/ScoreLabel.text = "Score: " + str(score)
+	$CanvasLayer/GameOverScreen/HighScoreLabel.text = "High Score: " + str(high_score)
