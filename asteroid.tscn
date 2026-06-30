@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://dhjmfrnlbpsnq"]
 
-[ext_resource type="Texture2D" uid="uid://dcqqijmnxfvkj" path="res://assets/meteorGrey_big1.png" id="1_n51xl"]
 [ext_resource type="Script" uid="uid://oukju7u2euux" path="res://asteroid.gd" id="1_p0ukn"]
+[ext_resource type="Texture2D" uid="uid://dt7dvxskqmprs" path="res://assets/asteroid-Photoroom.png" id="2_p0ukn"]
 
 [node name="Asteroid" type="Area2D" unique_id=268421814]
 script = ExtResource("1_p0ukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1317683333]
-texture = ExtResource("1_n51xl")
+position = Vector2(125.87501, -128.9375)
+scale = Vector2(0.16610056, 0.16015625)
+texture = ExtResource("2_p0ukn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1354875329]
-position = Vector2(-1.5579225, 2.15909)
-scale = Vector2(1.0289634, 1.0795456)
-polygon = PackedVector2Array(29, 25, 5, 19, -19, 31, -39, 9, -27, -35, 21, -35, 43, 0)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1619512925]
+position = Vector2(195.60036, -13.163573)
+scale = Vector2(4.7494063, 5.679266)
+polygon = PackedVector2Array(-7.4229145, -15.918562, -5.0638638, -20.19098, -6.4399776, -22.984484, -9.1922, -25.777988, -13.320534, -27.749876, -18.824982, -26.270962, -22.75673, -22.655838, -24.329428, -19.862333, -22.513136, -16.455404, -20.004505, -14.439645, -16.072758, -13.289381, -10.961487, -13.78235)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
